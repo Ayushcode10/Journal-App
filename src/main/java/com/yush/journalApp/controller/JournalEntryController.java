@@ -12,24 +12,25 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@RestController
+//defines that this class will handle HTTP requests
+@RestController  //(@Controller + @ResponseBody)
 @RequestMapping("/journal") //sets the base path -> /journal
-
 //class which handles all http requests
 
 public class JournalEntryController {
 
     //📌 @Autowired tells Spring:
     //“Please inject an object of JournalEntryService here for me.”
-    @Autowired
+    @Autowired  //dependency Injection
     private JournalEntryService journalEntryService;
 
-    @Autowired
+    @Autowired  //dependency injection
     private UserService userService;
-    @GetMapping("{userName}") //localhost:8080/journal --> GET
+
+    @GetMapping("{userName}") //localhost:8080/journal/userName --> GET
     public ResponseEntity<?> getAllJournalEntriesOfUser(@PathVariable String userName) {
-        User user = userService.findByUserName(userName);
-        List<JournalEntry> all = user.getJournalEntries();
+        User user = userService.findByUserName(userName); //calls user-service to fetch the user by username
+        List<JournalEntry> all = user.getJournalEntries(); //creates a list of journalEntries of a user
         if(all != null && !all.isEmpty()){
             return new ResponseEntity<>(all,HttpStatus.OK);
         }
