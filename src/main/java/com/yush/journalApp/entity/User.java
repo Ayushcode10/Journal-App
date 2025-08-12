@@ -20,8 +20,6 @@ import java.util.List;
 public class User{
     @Id  //_id field
     private ObjectId id;
-
-
     @Indexed(unique = true)//creates a unique index on "userName"
     @Nonnull // should be non-null
     private String userName;
@@ -34,4 +32,5 @@ public class User{
     //same as foreign key
     @DBRef
     private List<JournalEntry> journalEntries = new ArrayList<>();
+    private List<String> roles;
 }
