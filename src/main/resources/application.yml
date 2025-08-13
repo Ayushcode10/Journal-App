@@ -1,0 +1,10 @@
+spring.data.mongodb.uri=mongodb+srv://ayushhcode:gim5jsRxTLB8hQRo@cluster0.rbed5pc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+spring.data.mongodb.database=journaldb
+spring.data.mongodb.auto-index-creation=true
+
+#//this allows to use circular dependencies
+spring.main.allow-circular-references = true
+
+
+#ayushhcode
+#gim5jsRxTLB8hQRo
