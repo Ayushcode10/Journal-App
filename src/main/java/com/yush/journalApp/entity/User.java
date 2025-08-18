@@ -1,6 +1,7 @@
 package com.yush.journalApp.entity;
 
 import jakarta.annotation.Nonnull;
+import lombok.Builder;
 import lombok.Data;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -15,6 +16,7 @@ import java.util.List;
 
 //name of the collection where the instance of this class will be stored
 //Map to users collection.
+@Builder
 @Document(collection = "users")
 @Data //auto-generated getters and setters
 public class User{

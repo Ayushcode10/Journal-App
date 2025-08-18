@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import javax.swing.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,10 +20,15 @@ public class UserService {
     private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 
-    public void saveNewUser(User user){
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles(List.of("USER"));
-        userRepository.save(user);
+    public boolean saveNewUser(User user){
+        try {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            user.setRoles(List.of("USER"));
+            userRepository.save(user);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
     public void saveUser(User user){
@@ -47,4 +53,9 @@ public class UserService {
         return userRepository.findByUserName(username);
     }
 
+    public void saveAdmin(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles(List.of("ADMIN"));
+        userRepository.save(user);
+    }
 }

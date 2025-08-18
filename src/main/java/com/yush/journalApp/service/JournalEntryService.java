@@ -1,6 +1,5 @@
 package com.yush.journalApp.service;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
 import com.yush.journalApp.entity.JournalEntry;
 import com.yush.journalApp.entity.User;
 import com.yush.journalApp.repository.JournalEntryRepo;

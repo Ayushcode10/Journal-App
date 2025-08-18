@@ -35,3 +35,11 @@ build/
 
 # Ignore Spring Boot application properties
 src/main/resources/application.properties
+
+# Ignore Spring Boot yml file
+
+src/main/resources/application.yml
+
+
+# Ignore test files
+src/test/java/com/yush/journalApp/**/*.java
